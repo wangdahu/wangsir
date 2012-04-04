@@ -14,7 +14,7 @@ $(function(){
     });
 
     // 点击弹出
-    $(".sign").click(function(){
+    $(".sign, .js-close").click(function(){
         $(".floor").togglepop();
     });
 
