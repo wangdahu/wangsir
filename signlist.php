@@ -4,13 +4,8 @@
     <title>Welcome to WangSir.info</title>
   </head>
   <body>
-    <div style="position: fixed; top: 0px; right: 0px; left: 0px; padding-left: 10px; background-color: #F0F0F0; border: solid 1px #DDD;">
-      <a href="index.php">WangSir</a>
-      <a href="signlist.php">签到表</a>
-      <span style="margin-left: 83%;">
-      <button class="sign" ><span style="font-size: 20px; color: red">签到</span></button>
-      </span>
-    </div>
+    <?php echo require("layer.php");?>
+    
     <div style="margin-left: 10px; margin-top: 50px;">
         <?php
             $recordData = unserialize(require('viewRecord.php'));
@@ -23,9 +18,8 @@
         </div>
       <?php endforeach; ?>
     </div>
-        
-    <div style='position: fixed; bottom: 20px; right: 30px;' title='点击进入无良空间'>
-      <a target="_blank" title="点击进入无良空间" href="http://553784858.qzone.qq.com/">无良杂种</a>  2012-03-31
-    </div>
+  <?php echo require("bottom.php");?>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="js/layer.js"></script>
 </html>
