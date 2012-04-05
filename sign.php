@@ -29,7 +29,7 @@ try {
         array_unshift($recordData, $data);
 
         $recordStr = serialize($recordData);
-        file_put_contents('viewRecord.php', $recordStr);
+        file_put_contents($filename, $recordStr);
 
         echo json_encode(array("status"=>1));
     } else {
