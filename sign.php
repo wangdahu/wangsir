@@ -2,7 +2,7 @@
 if($_POST){
     // 写入文件
     $recordData = unserialize(require('viewRecord.php'));
-    $data = array("name" => $_POST['name'], "desc" => $_POST['desc'], "time"=>time());
+    $data = array("name" => $_POST['name'], "desc" => $_POST['desc'], "time"=>time(), 'ip_addr' => $_SERVER['REMOTE_ADDR']);
     array_unshift($recordData, $data);
 
     $recordStr = '<?php

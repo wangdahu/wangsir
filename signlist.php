@@ -14,7 +14,7 @@
         <div style=" border-bottom: solid 1px #DDD;">
           <p>来者：<span><?php echo $record['name']; ?></span></p>
           <p>意见：<span><?php echo $record['desc']; ?></span></p>
-          <p>访问时间：<span><?php echo date('Y-m-d H:i', $record['time']); ?></span></p>
+          <p>访问时间：<span><?php echo date('Y-m-d H:i', $record['time']); ?></span>&nbsp;From: <?php echo isset($record['ip_addr']) ? $record['ip_addr'] : 'Unkown' ?></p>
         </div>
       <?php endforeach; ?>
     </div>
