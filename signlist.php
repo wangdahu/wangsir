@@ -4,7 +4,7 @@
     <title>Welcome to WangSir.info</title>
   </head>
   <body>
-    <?php echo require("layer.php");?>
+    <?php include "layer.php"; ?>
     
     <div style="margin-left: 10px; margin-top: 50px;">
         <?php
@@ -18,7 +18,7 @@
         </div>
       <?php endforeach; ?>
     </div>
-  <?php echo require("bottom.php");?>
+  <?php include "bottom.php"; ?>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="js/layer.js"></script>

@@ -4,7 +4,7 @@
     <title>Welcome to WangSir.info</title>
   </head>
   <body>
-    <?php echo require("layer.php");?>
+    <?php include "layer.php";?>
     
   <pre style="padding-left: 25%; margin-top: 17%; color: #26709A;">
 `7MMF'     A     `7MF' db      `7MN.   `7MF'  .g8"""bgd   .M"""bgd `7MMF' `7MM"""Mq.
@@ -15,7 +15,7 @@
      :MM;    :MM;  A'     VML    M     YMM  `Mb.     MM  Mb     dM   MM     MM   `Mb.
       VF      VF .AMA.   .AMMA..JML.    YM    v"bmmmdPY  P"Ybmmd"  .JMML. .JMML. .JMM.
   </pre>
-  <?php echo require("bottom.php");?>
+  <?php include "bottom.php"; ?>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="js/layer.js"></script>
