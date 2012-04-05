@@ -28,12 +28,12 @@ $(function(){
     // 签名提交
     $("#sign_form").submit(function(){
         $.post(this.action, $(this).serialize(), function(json){
-            if(json.status == 0){
-                alert("Sorry, 签到失败!");
-                return false;
+            if(json.status !== 1){
+                alert("Sorry, 签到失败!" + json.msg);
+            } else {
+                location.reload();
             }
         }, 'json');
-        location.reload();
         return false;
     });
 });
