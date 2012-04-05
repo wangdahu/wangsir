@@ -1,12 +1,11 @@
 <?php
 if($_POST){
     // 写入文件
-    $recordData = unserialize(require('viewRecord.php'));
+    $recordData = unserialize(file_get_contents('viewRecord.php'));
     $data = array("name" => $_POST['name'], "desc" => $_POST['desc'], "time"=>time(), 'ip_addr' => $_SERVER['REMOTE_ADDR']);
     array_unshift($recordData, $data);
 
-    $recordStr = '<?php
-    return \''.serialize($recordData).'\';';
+    $recordStr = serialize($recordData);
     file_put_contents('viewRecord.php', $recordStr);
 
     echo json_encode(array("status"=>1));

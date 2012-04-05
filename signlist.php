@@ -8,13 +8,13 @@
     
     <div style="margin-left: 10px; margin-top: 50px;">
         <?php
-            $recordData = unserialize(require('viewRecord.php'));
+            $recordData = unserialize(file_get_contents('viewRecord.php'));
             foreach($recordData as $record):
         ?>
         <div style=" border-bottom: solid 1px #DDD;">
           <p>来者：<span><?php echo $record['name']; ?></span></p>
           <p>意见：<span><?php echo $record['desc']; ?></span></p>
-          <p>访问时间：<span><?php echo date('Y-m-d H:i', $record['time']); ?></span>&nbsp;From: <?php echo isset($record['ip_addr']) ? $record['ip_addr'] : 'Unkown' ?></p>
+          <p>访问时间：<span><?php echo date('Y-m-d H:i', $record['time']); ?></span>&nbsp;From: <?php echo isset($record['ip_addr']) ? $record['ip_addr'] : 'Unknown' ?></p>
         </div>
       <?php endforeach; ?>
     </div>
