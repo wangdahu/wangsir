@@ -12,9 +12,9 @@
   </form>
 </div>
 <div class="header">
-  <a href="index.php">WangSir</a>
-  <a href="signlist.php">签到表</a>
   <span style="float: right;">
     <button class="sign" style="font-size: 20px; color: red">签到</button>
   </span>
+  <a href="index.php">WangSir</a>
+  <a href="signlist.php">签到表</a>
 </div>
