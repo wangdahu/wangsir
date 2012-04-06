@@ -22,7 +22,6 @@
   </body>
 </html>
 <?php
-     var_dump($_COOKIE);
      if($_POST){
          if($_POST['name'] != "wangsir" && $_POST['password'] != ".info"){
              echo "账户和密码错误!";
