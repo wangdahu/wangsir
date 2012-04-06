@@ -23,7 +23,7 @@
 </html>
 <?php
      if($_POST){
-         if($_POST['name'] != "wangsir" && $_POST['password'] != ".info"){
+         if(isset($_POST['name']) && $_POST['name'] != "wangsir" && isset($_POST['password']) && $_POST['password'] != ".info"){
              echo "账户和密码错误!";
              setcookie("admin_user", true, time()-3600);
          }else{
