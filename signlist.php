@@ -12,7 +12,7 @@
             foreach($recordData as $key => $record):
         ?>
         <div style=" border-bottom: solid 1px #DDD; <?php echo ($key%2) ? 'color: red; ' : ''?>" >
-          <?php if($_COOKIE['admin_user']):?><span style="float: right; padding-right: 20px;">X</span><?php endif;?>
+          <?php if(isset($_COOKIE['admin_user'])):?><span style="float: right; padding-right: 20px;">X</span><?php endif;?>
           <p>来者：<span><?php echo $record['name']; ?></span></p>
           <p>意见：<span><?php echo $record['desc']; ?></span></p>
           <p>访问时间：<span><?php echo date('Y-m-d H:i', $record['time']); ?></span></p>
