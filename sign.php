@@ -1,18 +1,17 @@
 <?php
 
 function get_location($ip) {
-    $start = microtime(true);
-    $html = file_get_contents('http://ip.qq.com/cgi-bin/searchip?searchip1=' . $ip);
+    $html = file_get_contents('http://ip138.com/ips.asp?action=2&ip=' . $ip);
     $html = iconv('gb2312', 'utf-8', $html);
     $location = '';
-    if(preg_match('/IP所在地为：<span>([\x{4e00}-\x{9fa5}]+)/u', $html, $city)) {
+    if(preg_match('/<li>本站主数据：([\x{4e00}-\x{9fa5}]+)/u', $html, $city)) {
         $location = $city[1];
     }
-    $end = microtime(true);
-    $filename = 'data/time.log';
-    $time = 'get location:'.sprintf('%.6f',$end-$start)."\n";
-    file_put_contents($filename, $time, FILE_APPEND);
     return $location;
+}
+
+function timelog($log) {
+    file_put_contents('data/time.log', $log, FILE_APPEND);
 }
 
 try {
@@ -25,21 +24,21 @@ try {
         }
         $recordData = unserialize(file_get_contents($filename));
         $ip_addr = $_SERVER['REMOTE_ADDR'];
+        $time_location = microtime(true);
+        $location = get_location($ip_addr);
+        $log_location = sprintf('get location: %.6fs', microtime(true) - $time_location);
         $data = array(
             'name' => $_POST['name'],
             'desc' => $_POST['desc'],
             'time'=>time(),
             'ip_addr' => $ip_addr,
-            'location' => get_location($ip_addr)
+            'location' => $location
         );
         array_unshift($recordData, $data);
 
         $recordStr = serialize($recordData);
         file_put_contents($filename, $recordStr);
-        $end = microtime(true);
-        $time = 'get all:'.sprintf('%.6f',$end-$start)."\n";
-        $filename = 'data/time.log';
-        file_put_contents($filename, $time, FILE_APPEND);
+        timelog(sprintf("get all: %.6f\t%s\n", microtime(true) - $start, $log_location));
         echo json_encode(array("status"=>1));
     } else {
         throw new Exception('访问错误！');
