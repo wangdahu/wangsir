@@ -1,17 +1,23 @@
 <?php
 
 function get_location($ip) {
+    $start = microtime(true);
     $html = file_get_contents('http://ip.qq.com/cgi-bin/searchip?searchip1=' . $ip);
     $html = iconv('gb2312', 'utf-8', $html);
     $location = '';
     if(preg_match('/IP所在地为：<span>([\x{4e00}-\x{9fa5}]+)/u', $html, $city)) {
         $location = $city[1];
     }
+    $end = microtime(true);
+    $filename = 'data/time.log';
+    $time = 'get location:'.sprintf('%.6f',$end-$start)."\n";
+    file_put_contents($filename, $time, FILE_APPEND);
     return $location;
 }
 
 try {
     if($_POST){
+        $start = microtime(true);
         // 写入文件
         $filename = 'data/viewRecord.php';
         if(!is_writable($filename)) {
@@ -30,7 +36,10 @@ try {
 
         $recordStr = serialize($recordData);
         file_put_contents($filename, $recordStr);
-
+        $end = microtime(true);
+        $time = 'get all:'.sprintf('%.6f',$end-$start)."\n";
+        $filename = 'data/time.log';
+        file_put_contents($filename, $time, FILE_APPEND);
         echo json_encode(array("status"=>1));
     } else {
         throw new Exception('访问错误！');
