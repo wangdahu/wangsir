@@ -4,7 +4,7 @@
     <title>Welcome to WangSir.info</title>
   </head>
   <body>
-    <?php include "layer.php";?>
+ <?php include "layer.php";?>
     
   <pre style="padding-left: 25%; margin-top: 17%; color: #26709A;">
 `7MMF'     A     `7MF' db      `7MN.   `7MF'  .g8"""bgd   .M"""bgd `7MMF' `7MM"""Mq.
