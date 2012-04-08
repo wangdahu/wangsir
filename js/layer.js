@@ -36,4 +36,11 @@ $(function(){
         }, 'json');
         return false;
     });
+
+    // 先拿location
+    $(window).load(function() {
+        $.get('getlocation.php?ip=' + $('#ip_addr').val(), function(locale) {
+            $('#location').val(locale);
+        });
+    });
 });
