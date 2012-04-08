@@ -6,6 +6,8 @@
       <div style="margin: 5px 10px;">
         <input type="search" name="name" required placeholder="您的大名" autofocus size="10" maxlength="10" /><span style="color: red;">*</span> 到此一游!<br />
         <textarea name="desc" rows="4" cols="30" placeholder="好空好空，您老人家给点好点子咯！拒绝灌水!!!"></textarea><br />
+        <input type="hidden" name="ip_addr" id="ip_addr" value="<?php echo $_SERVER['REMOTE_ADDR'] ?>" />
+        <input type="hidden" name="location" id="location" />
         <span style="float: right; margin-right: 10px;"><button type="submit">签名</button></span>
       </div>
     </div>
