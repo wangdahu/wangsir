@@ -1,3 +1,4 @@
+<link href="./images/favicon.ico" rel="SHORTCUT ICON" />
 <link type="text/css" rel="stylesheet" href="./css/style.css">
 <div class="floor layer">
   <form action="sign.php" method="post" id="sign_form">
