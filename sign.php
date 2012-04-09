@@ -25,6 +25,16 @@ try {
             'ip_addr' => $_POST['ip_addr'],
             'location' => $_POST['location']
         );
+        $first = $recordData['0'];
+        if($_POST['ip_addr'] != $_SERVER['REMOTE_ADDR']){
+            echo json_encode(array('status' => 0, 'msg' => "同志们阿!不要乱搞阿!"));
+            exit;
+        }
+
+        if($first['ip_addr'] == $_POST['ip_addr'] && time() - $first['time'] < 50){
+            echo json_encode(array('status' => 0, 'msg' => "不要灌水哦"));
+            exit;
+        }
         array_unshift($recordData, $data);
 
         $recordStr = serialize($recordData);
