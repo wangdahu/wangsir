@@ -1,15 +1,5 @@
 <?php
 
-function get_location($ip) {
-    $html = file_get_contents('http://ip138.com/ips.asp?action=2&ip=' . $ip);
-    $html = iconv('gb2312', 'utf-8', $html);
-    $location = '';
-    if(preg_match('/<li>本站主数据：([\x{4e00}-\x{9fa5}]+)/u', $html, $city)) {
-        $location = $city[1];
-    }
-    return $location;
-}
-
 try {
     if($_POST){
         // 写入文件
@@ -27,13 +17,9 @@ try {
         );
         $first = $recordData['0'];
         if($_POST['ip_addr'] != $_SERVER['REMOTE_ADDR']){
-            echo json_encode(array('status' => 0, 'msg' => "同志们阿!不要乱搞阿!"));
-            exit;
-        }
-
-        if($first['ip_addr'] == $_POST['ip_addr'] && time() - $first['time'] < 50){
-            echo json_encode(array('status' => 0, 'msg' => "不要灌水哦"));
-            exit;
+            throw new Exception("同志们阿!不要乱搞阿!");
+        } else  if(time() - $first['time'] < 50){
+            throw new Exception("不要灌水哦");
         }
         array_unshift($recordData, $data);
 
