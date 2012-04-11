@@ -18,7 +18,7 @@ try {
         $first = $recordData['0'];
         if($_POST['ip_addr'] != $_SERVER['REMOTE_ADDR']){
             throw new Exception("同志们阿!不要乱搞阿!");
-        } else  if(time() - $first['time'] < 50){
+        } else  if($_POST['ip_addr'] == $first['ip_addr'] && time() - $first['time'] < 50){
             throw new Exception("不要灌水哦");
         }
         array_unshift($recordData, $data);
