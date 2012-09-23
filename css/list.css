@@ -5,7 +5,7 @@
 body {
     font-family:arial,sans-serif;
     font-size:100%;
-    margin:3em;
+    margin:1em;
     background:#666  ;
     color:#fff  ;
 }
@@ -38,8 +38,8 @@ ul li a {
     color: #000  ;
     background: #ffc  ;
     display: block;
-    height: 10em;
-    width: 10em;
+    height: 11.5em;
+    width: 11.5em;
     padding: 1em; /* Firefox */
     -moz-box-shadow: 5px 5px 7px rgba(33,33,33,1)  ; /* Safari+Chrome */
     -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7)  ; /* Opera */
