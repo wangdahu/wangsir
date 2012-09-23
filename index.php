@@ -5,8 +5,8 @@
   </head>
   <body>
  <?php include "layer.php";?>
-    
-  <pre style="padding-left: 25%; margin-top: 17%; color: #26709A;">
+
+  <pre style="font-size: 130%; padding-left: 18%; margin-top: 17%; color: #26709A;">
 <span class="red">`7MMF'     A     `7MF' db      `7MN.   `7MF'  .g8"""bgd   .M"""bgd `7MMF' `7MM"""Mq.</span>
   <span class="orange">`MA     ,MA     ,V' ;MM:       MMN.    M  .dP'     `M  ,MI    "Y   MM     MM   `MM.</span>
    <span class="yellow">VM:   ,VVM:   ,V' ,V^MM.      M YMb   M  dM'       `  `MMb.       MM     MM   ,M9'</span>
