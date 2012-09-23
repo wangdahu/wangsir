@@ -1,25 +1,28 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Welcome to WangSir.info</title>
-  </head>
-  <body>
+    <head>
+      <title>Welcome to WangSir.info</title>
+    </head>
+    <link href=”http://fonts.googleapis.com/css?family=Reenie+Beanie:regular” rel=”stylesheet” type=”text/css”>
+    <link type="text/css" rel="stylesheet" href="./css/list.css">
+    <body>
     <?php include "layer.php"; ?>
 
-    <div style="margin-left: 10px; margin-top: 50px;">
+    <ul>
         <?php
-            $recordData = unserialize(file_get_contents('data/viewRecord.php'));
-            foreach($recordData as $key => $record):
+             $recordData = unserialize(file_get_contents('data/viewRecord.php'));
+             foreach($recordData as $key => $record):
         ?>
-        <div style=" border-bottom: solid 1px #DDD; <?php echo ($key%2) ? 'color: red; ' : ''?>" >
-          <?php if(isset($_COOKIE['admin_user'])):?><span style="float: right; padding-right: 20px;">X</span><?php endif;?>
-          <p>来者：<span><?php echo htmlspecialchars($record['name']); ?></span></p>
-          <p>意见：<span><?php echo htmlspecialchars($record['desc'], ENT_QUOTES); ?></span></p>
-          <p>访问时间：<span><?php echo date('Y-m-d H:i', $record['time']); ?></span></p>
-          <p>访问地区：<span><?php echo isset($record['location']) ? $record['location'] : 'Unknown' ?></span></p>
-        </div>
-      <?php endforeach; ?>
-    </div>
+        <li>
+            <a href="javascript:;">
+                <h2><?php echo htmlspecialchars($record['name'])."："; ?></h2>
+                <p>
+                    <?php echo htmlspecialchars($record['desc'], ENT_QUOTES); ?>
+                </p>
+            </a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
   <?php include "bottom.php"; ?>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
