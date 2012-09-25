@@ -11,7 +11,7 @@
   <span class="orange">`MA     ,MA     ,V' ;MM:       MMN.    M  .dP'     `M  ,MI    "Y   MM     MM   `MM.</span>
    <span class="yellow">VM:   ,VVM:   ,V' ,V^MM.      M YMb   M  dM'       `  `MMb.       MM     MM   ,M9'</span>
     <span class="green">MM. ,M' MM. ,M' ,M  `MM      M  `MN. M  MM             `YMMNq.   MM     MMmmdM9</span>
-    <span class="blueless">`MM A'  `MM A'  AbmmmqMA     M   `MM.M  MM.    `7MMF'.     `MM   MM     MM  YM.</span>
+    <span class="cyan">`MM A'  `MM A'  AbmmmqMA     M   `MM.M  MM.    `7MMF'.     `MM   MM     MM  YM.</span>
      <span class="blue">:MM;    :MM;  A'     VML    M     YMM  `Mb.     MM  Mb     dM   MM     MM   `Mb.</span>
       <span class="purple">VF      VF .AMA.   .AMMA..JML.    YM    v"bmmmdPY  P"Ybmmd"  .JMML. .JMML. .JMM.</span>
   </pre>
