@@ -25,7 +25,7 @@ class wechatCallbackapiTest
     {
 		//get post data, May be due to the different environments
 		$postStr =  isset($GLOBALS["HTTP_RAW_POST_DATA"]) ?  $GLOBALS["HTTP_RAW_POST_DATA"]  : "";
-
+	
       	//extract post data
 		if (!empty($postStr)){
               	$postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
@@ -46,7 +46,9 @@ class wechatCallbackapiTest
 				// 关注事件
 				if($event == 'subscribe'){
               		$msgType = "text";
-					echo '谢谢您关注深圳市福兰克科技有限公司';
+					$eventStr = '谢谢您关注深圳市福兰克科技有限公司';
+					$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $eventStr);
+					echo $resultStr;
 				}
 				
 				// 关键字
