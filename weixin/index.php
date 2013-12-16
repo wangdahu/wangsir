@@ -41,6 +41,11 @@ class wechatCallbackapiTest
 							<Content><![CDATA[%s]]></Content>
 							<FuncFlag>0</FuncFlag>
 							</xml>";             
+				
+				$event = $postObj->Event();
+				if($event){
+					echo '谢谢您关注深圳市福兰克科技有限公司';
+				}
 				if(!empty( $keyword ))
                 {
               		$msgType = "text";
