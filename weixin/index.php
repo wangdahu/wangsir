@@ -28,7 +28,6 @@ class wechatCallbackapiTest
 
       	//extract post data
 		if (!empty($postStr)){
-                echo 1;exit;
               	$postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
                 $fromUsername = $postObj->FromUserName;
                 $toUsername = $postObj->ToUserName;
