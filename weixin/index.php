@@ -44,7 +44,7 @@ class wechatCallbackapiTest
 				if(!empty( $keyword ))
                 {
               		$msgType = "text";
-                	$contentStr = "欢迎来到深圳市福兰克科技有限公司";
+                	$contentStr = "欢迎来到<a target='_blank' href='http://www.wangsir.info'>深圳市福兰克科技有限公司</a>";
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 	echo $resultStr;
                 }else{
@@ -52,7 +52,7 @@ class wechatCallbackapiTest
                 }
 
         }else {
-        	echo "111";
+        	echo "欢迎来到<a target='_blank' href='http://www.wangsir.info'>深圳市福兰克科技有限公司</a>";
         	exit;
         }
     }
