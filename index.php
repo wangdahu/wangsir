@@ -6,7 +6,7 @@
   <body>
  <?php include "layer.php";?>
 
-  <pre style="font-size: 130%; padding-left: 18%; margin-top: 17%; color: #26709A;">
+  <pre style="font-size: 18px; width: 53em; margin: 0 auto; margin-top: 17%; color: #26709A;">
 <span class="red">`7MMF'     A     `7MF' db      `7MN.   `7MF'  .g8"""bgd   .M"""bgd `7MMF' `7MM"""Mq.</span>
   <span class="orange">`MA     ,MA     ,V' ;MM:       MMN.    M  .dP'     `M  ,MI    "Y   MM     MM   `MM.</span>
    <span class="yellow">VM:   ,VVM:   ,V' ,V^MM.      M YMb   M  dM'       `  `MMb.       MM     MM   ,M9'</span>
@@ -17,6 +17,6 @@
   </pre>
   <?php include "bottom.php"; ?>
   </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
   <script src="js/layer.js"></script>
 </html>
