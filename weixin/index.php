@@ -43,9 +43,13 @@ class wechatCallbackapiTest
 							</xml>";             
 				
 				$event = $postObj->Event();
-				if($event){
+				// 关注事件
+				if($event == 'subscribe'){
+              		$msgType = "text";
 					echo '谢谢您关注深圳市福兰克科技有限公司';
 				}
+				
+				// 关键字
 				if(!empty( $keyword ))
                 {
               		$msgType = "text";
