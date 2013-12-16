@@ -82,7 +82,7 @@ class wechatCallbackapiTest
         switch ($object->Event)
         {
             case "subscribe":
-                $contentStr = "感谢您关注【深圳市福兰克科技有限公司】"."\n"."chinafulanke"."\n"."我司主要生产和研发玻璃镜片油墨,我们将为您提供优质的服务.";
+                $contentStr = "感谢您关注【深圳市福兰克科技有限公司】"."\n"."我们的微信号chinafulanke"."\n"."我司主要生产和研发玻璃镜片油墨,我们将为您提供优质的服务.";
                 break;
             default :
                 $contentStr = "Unknow Event: ".$object->Event;
