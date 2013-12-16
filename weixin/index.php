@@ -24,10 +24,10 @@ class wechatCallbackapiTest
     public function responseMsg()
     {
         //get post data, May be due to the different environments
-        $postStr = isset($GLOBALS["HTTP_RAW_POST_DATA"]) ? $GLOBALS["HTTP_RAW_POST_DATA"] : ''
+        $postStr = isset($GLOBALS["HTTP_RAW_POST_DATA"]) ? $GLOBALS["HTTP_RAW_POST_DATA"] : '';
 
         //extract post data
-        if (!empty($postStr)){
+        if(!empty($postStr)){
                 
                 $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
                 $RX_TYPE = trim($postObj->MsgType);
