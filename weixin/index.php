@@ -68,7 +68,8 @@ class wechatCallbackapiTest
         if(!empty( $keyword ))
         {
             $msgType = "text";
-            $contentStr = "Welcome to wechat world!";
+			$link = "<a href='http://www.baidu.com'>百度</a>";
+            $contentStr = htmlspecialchars($link, ENT_QUOTES);
             $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
             echo $resultStr;
         }else{
