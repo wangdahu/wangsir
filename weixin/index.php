@@ -75,6 +75,7 @@ class wechatCallbackapiTest
 				$contentStr = "您查询的[{$keyword}]天气:{$weather->weatherinfo->date_y},{$weather->weatherinfo->week},{$weather->weatherinfo->temp1},{$weather->weatherinfo->weather1},{$weather->weatherinfo->wind1},48小时内：{$weather->weatherinfo->index48_d}";
 			}
 			$contentStr = $link = "您好!这里是我们的官网<a href='http://www.fulanke.cc'>深圳市福兰克科技有限公司</a>!";
+			$contentStr = $weather->weatherinfo->date_y;
             // $contentStr = htmlspecialchars($link, ENT_QUOTES);
             $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
             echo $resultStr;
