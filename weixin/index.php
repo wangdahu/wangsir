@@ -68,15 +68,7 @@ class wechatCallbackapiTest
         if(!empty( $keyword ))
         {
             $msgType = "text";
-			$weather = $this->weather($keyword);
-			if(!$weather->weatherinfo) {
-				$contentStr = "非常抱歉，没有找到[{$keyword}] 的天气情况";
-			}else {
-				$contentStr = "您查询的[{$keyword}]天气:{$weather->weatherinfo->date_y},{$weather->weatherinfo->week},{$weather->weatherinfo->temp1},{$weather->weatherinfo->weather1},{$weather->weatherinfo->wind1},48小时内：{$weather->weatherinfo->index48_d}";
-			}
-			$contentStr = $link = "您好!这里是我们的官网<a href='http://www.fulanke.cc'>深圳市福兰克科技有限公司</a>!";
-			$contentStr = $weather->weatherinfo->date_y;
-            // $contentStr = htmlspecialchars($link, ENT_QUOTES);
+			$contentStr = $this->weather($keyword);
             $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
             echo $resultStr;
         }else{
@@ -89,7 +81,13 @@ class wechatCallbackapiTest
 		include("data/city_api.php");
 		$city_code = $city_api[$city];
 		$json = file_get_contents("http://m.weather.com.cn/data/{$city_code}.html");
-		return json_decode($json);
+		$weather = json_decode($json);
+		if(!$weather->weatherinfo) {
+			$contentStr = "非常抱歉，没有找到[{$keyword}] 的天气情况";
+		}else {
+			$contentStr = "您查询的[{$keyword}]天气";
+		}
+		return $contentStr;
 	}
 
 	// 关注回复
