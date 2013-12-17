@@ -80,11 +80,6 @@ class wechatCallbackapiTest
 	public function weather($city){
 		include("data/city_api.php");
 		$city_code = $city_api[$city];
-		if($city_code) {
-			return $city_code;
-		}else {
-			return 11;
-		}
 		$json = file_get_contents("http://m.weather.com.cn/data/{$city_code}.html");
 		$weather = json_decode($json);
 		if(!$weather->weatherinfo) {
