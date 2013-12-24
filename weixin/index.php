@@ -69,28 +69,38 @@ class wechatCallbackapiTest
 		$strjson=json_decode($result);
 		$token = $strjson->access_token;
 				
-		$post="{
-			 \"button\":[
-			 {	
-				  \"type\":\"click\",
-				  \"name\":\"账号介绍\",
-				  \"key\":\"V1001_TODAY_ME\"
-			  },
-				   {
-				   \"name\":\"菜ss单\",
-				   \"sub_button\":[
-					{
-					   \"type\":\"click\",
-					   \"name\":\"hello word\",
-					   \"key\":\"V1001_HELLO_WORLD\"
+		$post='{
+				"button":[
+				{	
+					"type":"click",
+					"name":"今日歌曲",
+					"key":"V1001_TODAY_MUSIC"
+				},
+				{
+					"type":"click",
+					"name":"歌手简介",
+					"key":"V1001_TODAY_SINGER"
+				},
+				{
+					"name":"菜单",
+					"sub_button":[
+					{	
+						"type":"view",
+						"name":"搜索",
+						"url":"http://www.soso.com/"
 					},
 					{
-					   \"type\":\"click\",
-					   \"name\":\"赞一下我们\",
-					   \"key\":\"V1001_GOOD\"
+						"type":"view",
+						"name":"视频",
+						"url":"http://v.qq.com/"
+					},
+					{
+						"type":"click",
+						"name":"赞一下我们",
+						"key":"V1001_GOOD"
 					}]
-			   }]
-		 }";  //提交内容
+				}]
+			}';  //提交内容
 		$url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token={$token}"; //查询地址 
 		$ch = curl_init();//新建curl
 		curl_setopt($ch, CURLOPT_URL, $url);//url  
