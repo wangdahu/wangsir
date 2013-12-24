@@ -68,7 +68,9 @@ class wechatCallbackapiTest
         if(!empty( $keyword ))
         {
             $msgType = "text";
-			$contentStr = $this->weather($keyword);
+			if(substr($keyword, -6) == "天气"){
+				$contentStr = $this->weather(substr($keyword, 0, -6));
+			}
             $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
             echo $resultStr;
         }else{
@@ -83,7 +85,7 @@ class wechatCallbackapiTest
 		if(!$weather->text) {
 			$contentStr = "非常抱歉，没有找到[{$city}] 的天气情况";
 		}else {
-			$contentStr = "您查询的[{$city}]天气\n{$weather->text->content}";
+			$contentStr = "{$weather->text->content}";
 		}
 		return $contentStr;
 	}
