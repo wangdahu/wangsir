@@ -66,7 +66,36 @@ class wechatCallbackapiTest
 
 		$strjson=json_decode($result);
 		$token = $strjson->access_token;
-		return $token;
+				
+		$post="{
+			 \"button\":[
+			 {	
+				  \"type\":\"click\",
+				  \"name\":\"账号介绍\",
+				  \"key\":\"V1001_TODAY_ME\"
+			  },
+				   {
+				   \"name\":\"菜单\",
+				   \"sub_button\":[
+					{
+					   \"type\":\"click\",
+					   \"name\":\"hello word\",
+					   \"key\":\"V1001_HELLO_WORLD\"
+					},
+					{
+					   \"type\":\"click\",
+					   \"name\":\"赞一下我们\",
+					   \"key\":\"V1001_GOOD\"
+					}]
+			   }]
+		 }";  //提交内容
+		$url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token={$token}"; //查询地址 
+		$ch = curl_init();//新建curl
+		curl_setopt($ch, CURLOPT_URL, $url);//url  
+		curl_setopt($ch, CURLOPT_POST, 1);  //post
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);//post内容  
+		curl_exec($ch); //输出   
+		curl_close($ch);
 	}
 
     public function handleText($postObj)
