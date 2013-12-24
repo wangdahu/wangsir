@@ -46,7 +46,7 @@ class wechatCallbackapiTest
                 }
                 echo $resultStr;
         }else {
-            echo "111";
+            echo $this->weather('深圳');
             exit;
         }
     }
