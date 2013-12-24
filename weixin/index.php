@@ -78,9 +78,7 @@ class wechatCallbackapiTest
 
 	// 天气返回接口
 	public function weather($city){
-		include("data/city_api.php");
-		$city_code = $city_api[$city];
-		$json = file_get_contents("http://api2.sinaapp.com/search/weather/?appkey=0020130430&appsecert=fa6095e113cd28fd&reqtype=text&keyword={$city_code}");
+		$json = file_get_contents("http://api2.sinaapp.com/search/weather/?appkey=0020130430&appsecert=fa6095e113cd28fd&reqtype=text&keyword={$city}");
 		$weather = json_decode($json);
 		if(!$weather->text) {
 			$contentStr = "非常抱歉，没有找到[{$city}] 的天气情况";
