@@ -33,19 +33,43 @@ class wechatCallbackapiTest
                 
                 $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
                 $RX_TYPE = trim($postObj->MsgType);
-
-                switch($RX_TYPE)
-                {
-                    case "text":
-                        $resultStr = $this->handleText($postObj);
-                        break;
-                    case "event":
-                        $resultStr = $this->handleEvent($postObj);
-                        break;
-                    default:
-                        $resultStr = "Unknow msg type: ".$RX_TYPE;
-                        break;
-                }
+				$event = $postObj->Event;
+				$eventKey = $postObj->EventKey;
+				
+				$latitude  = $postObj->Location_X;
+				$longitude = $postObj->Location_Y;
+				
+				if($event == 'click') {
+					switch ($eventKey) {
+						case "V1001_TODAY_MUSIC":
+							$contentStr = '今日歌星';
+							break;
+						case "V1001_TODAY_SINGER":
+							$contentStr = '歌手简介';
+							break;
+						case "V1001_GOOD":
+							$contentStr = '谢谢您的赞';
+							break;
+						default:
+							$contentStr = "谢谢您";
+							break;
+					}
+					$resultStr = $this->responseText($object, $contentStr);	
+				} else {
+					switch($RX_TYPE)
+					{
+						case "text":
+							$resultStr = $this->handleText($postObj);
+							break;
+						case "event":
+							$resultStr = $this->handleEvent($postObj);
+							break;
+						default:
+							$resultStr = "Unknow msg type: ".$RX_TYPE;
+							break;
+					}
+				}
+				
                 echo $resultStr;
         }else {
 			echo "test";
