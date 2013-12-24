@@ -57,7 +57,7 @@ class wechatCallbackapiTest
 		$accessTokenUrl = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appId}&secret={$appSecret}"
 
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL,$url);
+		curl_setopt($ch, CURLOPT_URL,$accessTokenUrl);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
