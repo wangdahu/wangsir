@@ -54,7 +54,7 @@ class wechatCallbackapiTest
 							$contentStr = "谢谢您";
 							break;
 					}
-					$resultStr = $this->responseText($object, $contentStr);	
+					$resultStr = $this->responseText($postObj, $contentStr);	
 				} else {
 					switch($RX_TYPE)
 					{
