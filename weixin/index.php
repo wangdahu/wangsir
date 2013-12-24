@@ -77,7 +77,7 @@ class wechatCallbackapiTest
 				  \"key\":\"V1001_TODAY_ME\"
 			  },
 				   {
-				   \"name\":\"菜单\",
+				   \"name\":\"菜ss单\",
 				   \"sub_button\":[
 					{
 					   \"type\":\"click\",
