@@ -80,12 +80,12 @@ class wechatCallbackapiTest
 	public function weather($city){
 		include("data/city_api.php");
 		$city_code = $city_api[$city];
-		$json = file_get_contents("http://m.weather.com.cn/data/{$city_code}.html");
+		$json = file_get_contents("http://api2.sinaapp.com/search/weather/?appkey=0020130430&appsecert=fa6095e113cd28fd&reqtype=text&keyword={$city_code}");
 		$weather = json_decode($json);
-		if(!$weather->weatherinfo) {
+		if(!$weather->text) {
 			$contentStr = "非常抱歉，没有找到[{$city}] 的天气情况";
 		}else {
-			$contentStr = "您查询的[{$city}]天气";
+			$contentStr = "您查询的[{$city}]天气\n{$weather->text->content}";
 		}
 		return $contentStr;
 	}
