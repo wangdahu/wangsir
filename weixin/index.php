@@ -46,10 +46,28 @@ class wechatCallbackapiTest
                 }
                 echo $resultStr;
         }else {
-            echo $this->weather('深圳');
+            echo $this->createMenu();
             exit;
         }
     }
+	
+	public function createMenu() {
+		$appId = "wxf3b7c858665ac642";
+		$appSecret = "71d48945a915b4a527e712a117ad9603";
+		$accessTokenUrl = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appId}&secret={$appSecret}"
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL,$url);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$result = curl_exec($ch);
+
+
+		$strjson=json_decode($result);
+		$token = $strjson->access_token;
+		return $token;
+	}
 
     public function handleText($postObj)
     {
