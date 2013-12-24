@@ -54,7 +54,7 @@ class wechatCallbackapiTest
 	public function createMenu() {
 		$appId = "wxf3b7c858665ac642";
 		$appSecret = "71d48945a915b4a527e712a117ad9603";
-		$accessTokenUrl = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appId}&secret={$appSecret}"
+		$accessTokenUrl = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appId}&secret={$appSecret}";
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL,$accessTokenUrl);
