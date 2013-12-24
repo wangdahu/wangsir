@@ -23,6 +23,8 @@ class wechatCallbackapiTest
 
     public function responseMsg()
     {
+		// 初始化菜单
+		$this->createMenu();
         //get post data, May be due to the different environments
         $postStr = isset($GLOBALS["HTTP_RAW_POST_DATA"]) ? $GLOBALS["HTTP_RAW_POST_DATA"] : '';
 
@@ -46,7 +48,7 @@ class wechatCallbackapiTest
                 }
                 echo $resultStr;
         }else {
-            echo $this->createMenu();
+			echo "test";
             exit;
         }
     }
