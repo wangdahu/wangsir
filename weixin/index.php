@@ -68,6 +68,7 @@ class wechatCallbackapiTest
         if(!empty( $keyword ))
         {
             $msgType = "text";
+			$contentStr = '';
 			if(substr($keyword, -6) == "天气"){
 				$contentStr = $this->weather(substr($keyword, 0, -6));
 			}
