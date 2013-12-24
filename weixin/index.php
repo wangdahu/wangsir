@@ -39,7 +39,7 @@ class wechatCallbackapiTest
 				$latitude  = $postObj->Location_X;
 				$longitude = $postObj->Location_Y;
 				
-				if($event == 'click') {
+				if($event == 'CLICK') {
 					switch ($eventKey) {
 						case "V1001_TODAY_MUSIC":
 							$contentStr = '今日歌星';
@@ -69,7 +69,6 @@ class wechatCallbackapiTest
 							break;
 					}
 				}
-				
                 echo $resultStr;
         }else {
 			echo "test";
