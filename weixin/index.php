@@ -33,6 +33,8 @@ class wechatCallbackapiTest
                 
                 $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
                 $RX_TYPE = trim($postObj->MsgType);
+				echo $this->responseText($postObj, $RX_TYPE);	
+				exit;
 				$event = $postObj->Event;
 				$eventKey = $postObj->EventKey;
 				
