@@ -33,13 +33,14 @@ class wechatCallbackapiTest
                 
                 $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
                 $RX_TYPE = trim($postObj->MsgType);
-				$event = $postObj->Event;
-				echo $this->responseText($postObj, $event);	
-				exit;
-				$eventKey = $postObj->EventKey;
-				
-				$latitude  = $postObj->Location_X;
-				$longitude = $postObj->Location_Y;
+				$event = '';
+				if(isset($postObj->Event)) {
+					$event = $postObj->Event;
+					$eventKey = $postObj->EventKey;
+					
+					$latitude  = $postObj->Location_X;
+					$longitude = $postObj->Location_Y;
+				}
 				
 				if($event == 'CLICK') {
 					switch ($eventKey) {
